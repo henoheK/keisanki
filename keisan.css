@@ -1,8 +1,8 @@
 body {
     background-color: #14002e;
     color: #fdffff;
-    width: 500px;
-   }
+    width: 100%;
+}
    button {
     padding: 5px 20px;
     background-color: #ffffff;
@@ -16,6 +16,10 @@ body {
  {
     text-align : center ;
  } 
+ h1
+ {
+    text-align:center
+ }
  .text
  {
     text-align:center

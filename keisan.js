@@ -1,5 +1,10 @@
 var num =0;
-var keis_kigo=['+','-','*','/'];
+//新しい記号がある時は、下のtasiとかに番号を入れること
+var keis_kigo=["+","-","*","/","＋","ー","✖︎","÷","➕","➖","✖️","➗","❌",];
+var keis_kigo_tasi=[0,4,8];
+var keis_kigo_hiki=[1,5,9];
+var keis_kigo_kake=[2,6,10,12];
+var keis_kigo_wari=[3,7,11];
 const keisan_siki_Imput=document.getElementById('keisan_siki');
 const jikou_button=document.getElementById('jikkou');
 const resultDivided=document.getElementById('result-area');
@@ -14,16 +19,22 @@ jikou_button.onclick = () =>
 function hyoj_keka(result)
 {
     removeAllChildren(resultDivided)
-    const header = document.createElement('h1');
-    header.innerText = '計算結果';
-    header.className='text';
-    resultDivided.appendChild(header);
-  
     const kaigyo = document.createElement('br');
-    const paragraph = document.createElement('h1');
-    paragraph.innerText = result;
-    paragraph.className='text';
-    resultDivided.appendChild(paragraph);
+    if(isNaN(result))
+    {
+        result="申し訳ありません。\n本サイトは四則の計算にしか対応しておりません。"
+        const paragraph = document.createElement('h3');
+        paragraph.innerText = result;
+        paragraph.className='text';
+        resultDivided.appendChild(paragraph);
+    }
+    else
+    {
+        const paragraph = document.createElement('h1');
+        paragraph.innerText = result;
+        paragraph.className='text';
+        resultDivided.appendChild(paragraph);
+    }
 }
   function removeAllChildren(element) {
     while (element.firstChild) {
@@ -50,19 +61,19 @@ function keisan()
     for (var i=1;i< valies.length;i++)
     {
         //いろんな計算
-        if(how_kei[i-1]==0)
+        if(keis_kigo_tasi.includes(how_kei[i-1]))
         {
             result+=(valies[i]);
         }
-        else if(how_kei[i-1]==1)
+        else if(keis_kigo_hiki.includes(how_kei[i-1]))
         {
             result-=(valies[i]);
         }
-        else if(how_kei[i-1]==2)
+        else if(keis_kigo_kake.includes(how_kei[i-1]))
         {
             result*=(valies[i]);
         }
-        else if(how_kei[i-1]==3)
+        else
         {
             result/=(valies[i]);
         }}
