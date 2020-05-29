@@ -22,7 +22,7 @@ function hyoj_keka(result)
     const kaigyo = document.createElement('br');
     if(isNaN(result))
     {
-        result="申し訳ありません。\n本サイトは四則の計算にしか対応しておりません。"
+        result="申し訳ありません。\n本サイトは整数の四則の計算にしか対応しておりません。"
         const paragraph = document.createElement('h3');
         paragraph.innerText = result;
         paragraph.className='text';
