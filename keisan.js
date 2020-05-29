@@ -1,9 +1,9 @@
 var num =0;
 //新しい記号がある時は、下のtasiとかに番号を入れること
-var keis_kigo=["+","-","*","/","＋","ー","✖︎","÷","➕","➖","✖️","➗","❌",];
+var keis_kigo=["+","-","*","/","＋","ー","✖︎","÷","➕","➖","✖️","➗","＊","❌"];
 var keis_kigo_tasi=[0,4,8];
 var keis_kigo_hiki=[1,5,9];
-var keis_kigo_kake=[2,6,10,12];
+var keis_kigo_kake=[2,6,10,12,13];
 var keis_kigo_wari=[3,7,11];
 const keisan_siki_Imput=document.getElementById('keisan_siki');
 const jikou_button=document.getElementById('jikkou');
@@ -81,13 +81,6 @@ function keisan()
 }
 function sujies(valuearray)
 {
-    //区切らせる
-    // foreach(value in valuearray)
-    //{
-        //半角処理  
-        //  han_cha_zen(setvalary[num])
-        //}
-        //ここまでに、数値型に直すこと
     while(num<valuearray.length)
     {
         valies.push(get_one_word(valuearray));
